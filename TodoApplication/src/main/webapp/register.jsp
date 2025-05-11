@@ -55,7 +55,7 @@
 <body>
     <div class="register-container">
         <h2>Register</h2>
-        <form action="/authentication-project/register" method="post">
+        <form action="/TodoApplication/register" method="post">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>

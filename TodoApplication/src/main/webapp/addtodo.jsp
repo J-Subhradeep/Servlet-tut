@@ -59,7 +59,7 @@
 <body>
     <h1>Add a New Todo</h1>
     <br/>
-    <form action="saveTodo" method="post">
+    <form action="/TodoApplication/add_todo" method="post">
         <label for="todo">Todo:</label>
         <input type="text" id="todo" name="todo" placeholder="enter your todo here" required>
         <button type="submit">Save</button>

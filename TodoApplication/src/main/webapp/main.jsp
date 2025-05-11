@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="main.auth.data.Todo"%>
+<%@page import="java.util.List"%>
 <html>
 <head>
     <title>Todo Application</title>
@@ -51,21 +53,29 @@
     <div class="todo-container">
         <h1>Todo Application</h1>
         <div class="add-todo">
+        <a href="/TodoApplication/add_todo">
+        
             <button >Add Todo</button>
+        </a>
         </div>
         <div id="todoList">
-            <div class="todo-item">
-                <span>Buy groceries</span>
-                <button >Delete</button>
-            </div>
-            <div class="todo-item">
-                <span>Complete homework</span>
-                <button>Delete</button>
-            </div>
-            <div class="todo-item">
-                <span>Call mom</span>
-                <button >Delete</button>
-            </div>
+            <%
+            List<Todo> todos = (List<Todo>) request.getAttribute("todos");
+            if (todos != null) {
+                for (Todo todo : todos) {
+            %>
+                <div class="todo-item">
+                    <span><%= todo.getTitle() %></span>
+                    <a href="/TodoApplication/delete_todo?id=<%= todo.getId() %>"><button>Delete</button></a>
+                </div>
+            <%
+                }
+            } else {
+            %>
+                <p>No todos available.</p>
+            <%
+            }
+            %>
         </div>
     </div>
 </body>
