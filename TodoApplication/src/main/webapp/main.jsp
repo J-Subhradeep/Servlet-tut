@@ -76,7 +76,18 @@
             <%
             }
             %>
+
         </div>
+
+
+
     </div>
+    <div class="logout-container" style="text-align: center; margin-top: 20px;">
+        <form action="/TodoApplication/main" method="post" style="display: inline;">
+            <button type="submit" style="padding: 5px 10px; background-color: blue; color: white; border: none; cursor: pointer;">Logout</button>
+        </form>
+    </div>
+
+
 </body>
 </html>

@@ -28,6 +28,7 @@ public class MainServlet extends HttpServlet {
 		int user_id = Integer.parseInt(session.getAttribute("user_id").toString());
 		
 		
+		
 		List<Todo> todos = FetchTodo.getTodos(user_id);
 		System.out.println(todos);
 		req.setAttribute("todos", todos);
@@ -40,9 +41,10 @@ public class MainServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = req.getSession();
+		session.removeAttribute("user_id");
 		
-		
-		
+		resp.sendRedirect("index.jsp");
 	}
 
 	
